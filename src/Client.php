@@ -1661,6 +1661,27 @@ class Client
     }
 
     /**
+     * Update site radioai
+     *
+     * @param string       $radioai_id _id value of the radioai section
+     * @param object|array $payload         stdClass object or associative array containing the configuration to apply
+     *                                      to the site, must be a (partial) object/array structured in the same manner
+     *                                      as is returned by list_settings() for the section with the "radioai"
+     *                                      key. Do not include the _id property, it is assigned by the controller and
+     *                                      returned upon success.
+     * @return bool true on success
+     */
+    public function set_group_radioai($radioai_id, $payload)
+    {
+        $this->curl_method = 'PUT';
+
+        return $this->fetch_results_boolean(
+            '/api/s/'.$this->site.'/group/setting/'.trim($radioai_id),
+            $payload
+        );
+    }
+
+    /**
      * Fetch admins
      *
      * @return array containing administrator objects for selected site
