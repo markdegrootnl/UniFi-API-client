@@ -1671,14 +1671,11 @@ class Client
      *                                      returned upon success.
      * @return bool true on success
      */
-    public function set_group_radioai($radioai_id, $payload)
+    public function set_site_radioai($radioai_id, $payload)
     {
         $this->curl_method = 'PUT';
-
-        return $this->fetch_results_boolean(
-            '/api/s/'.$this->site.'/group/setting/'.trim($radioai_id),
-            $payload
-        );
+        return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/setting/radioai/' . trim($radioai_id),
+            $payload);
     }
 
     /**
