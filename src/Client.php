@@ -1674,7 +1674,7 @@ class Client
     public function set_site_radioai($radioai_id, $payload)
     {
         $this->curl_method = 'PUT';
-        return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/setting/radioai/' . trim($radioai_id),
+        return $this->fetch_results_boolean('/api/s/' . $this->site . '/rest/setting/radio_ai/' . trim($radioai_id),
             $payload);
     }
 
